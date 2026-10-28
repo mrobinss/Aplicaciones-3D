@@ -8,6 +8,8 @@ public abstract class Tile : MonoBehaviour
     // Serialized *****
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
     [SerializeField] protected Transform itemAnchor;
+    // Opcional: indicador que se muestra al resaltar (para estaciones cuyo modelo esta oculto)
+    [SerializeField] private GameObject highlightIndicator;
     [Header("Reference")]
     [SerializeField] protected Item initialItem; 
     // Private *****
@@ -78,6 +80,8 @@ public abstract class Tile : MonoBehaviour
     
     public void StopHighlight()
     {
+        if (highlightIndicator) highlightIndicator.SetActive(false);
+
         if (_meshRenderer)
         {
             for (int i=0; i<_meshRenderer.materials.Length; i++)
@@ -101,11 +105,16 @@ public abstract class Tile : MonoBehaviour
         }
     }
     
+    // Coloca un item sobre la estacion desde otro sistema (por ejemplo, hojas sucias que regresan)
+    public bool TryPlaceItem(Item item) => GrabItem(item);
+
     // Private Methods *****
     protected abstract void TakeAdvanceAction(PlayerInteraction owner);
 
     public void StartHighlight()
     {
+        if (highlightIndicator) highlightIndicator.SetActive(true);
+
         if (_meshRenderer)
         {
             for (int i=0; i<_meshRenderer.materials.Length; i++)

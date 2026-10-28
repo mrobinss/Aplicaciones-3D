@@ -81,11 +81,31 @@ public class Cookware : Item
     }
 
 
+    // Solo acepta ingredientes de la receta y hasta la cantidad que pide cada uno
+    private bool RecipeAccepts(FoodData foodData)
+    {
+        if (!recipe || recipe.materials == null || recipe.materials.Count == 0) return true;
+
+        foreach (FoodAmount material in recipe.materials)
+        {
+            if (material.food != foodData) continue;
+
+            int current = 0;
+            foreach (FoodData food in _foodDataList)
+            {
+                if (food == foodData) current++;
+            }
+            return current < material.amount;
+        }
+        return false;
+    }
+
     // Public Methods *****
     public bool AddFood(FoodData foodData)
     {
         if (_foodDataList.Count >= maxCapacity || foodData.foodType != FoodType.Processed) return false;
-        
+        if (!RecipeAccepts(foodData)) return false;
+
         _foodDataList.Add(foodData);
         potSoup.localPosition = new Vector3(potSoup.localPosition.x, GetSoupLevel(), potSoup.localPosition.z);
         

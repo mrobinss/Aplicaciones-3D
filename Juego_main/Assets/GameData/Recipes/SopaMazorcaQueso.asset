@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56a04ef1a4b4b549b9ba31e7a888c1b, type: 3}
+  m_Name: SopaMazorcaQueso
+  m_EditorClassIdentifier: 
+  materials:
+  - food: {fileID: 11400000, guid: c19b7084afd5fd24cbf47b459e9891b7, type: 2}
+    amount: 1
+  - food: {fileID: 11400000, guid: 1df9e7ce288c67545a917323f3bef9d9, type: 2}
+    amount: 1
+  result: {fileID: 11400000, guid: c855e2983d3dbb046be78d6496a985b0, type: 2}
+  cookingTime: 7

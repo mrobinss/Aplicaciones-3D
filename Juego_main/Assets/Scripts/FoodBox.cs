@@ -26,7 +26,13 @@ public class FoodBox : Tile
 
     protected override void TakeAdvanceAction(PlayerInteraction owner)
     {
+        Item newFood = Instantiate(foodItem.prefab).GetComponent<Item>();
+        if (!owner.GrabItem(newFood))
+        {
+            // El jugador ya tenia algo en la mano: no dejar comida suelta en la escena
+            Destroy(newFood.gameObject);
+            return;
+        }
         _animator.SetTrigger("Open");
-        owner.GrabItem(Instantiate(foodItem.prefab).GetComponent<Item>());
     }
 }

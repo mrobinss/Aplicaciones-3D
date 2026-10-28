@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 525161106}
   - component: {fileID: 525161105}
   - component: {fileID: 525161104}
+  - component: {fileID: 525161107}
   m_Layer: 5
   m_Name: Iniciar
   m_TagString: Untagged
@@ -399,6 +400,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525161102}
   m_CullTransparentMesh: 1
+--- !u!114 &525161107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525161102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &709935953
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +625,7 @@ GameObject:
   - component: {fileID: 1387897102}
   - component: {fileID: 1387897101}
   - component: {fileID: 1387897100}
+  - component: {fileID: 1387897103}
   m_Layer: 5
   m_Name: Salir
   m_TagString: Untagged
@@ -723,6 +747,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387897098}
   m_CullTransparentMesh: 1
+--- !u!114 &1387897103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387897098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &1524153420
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +781,7 @@ GameObject:
   - component: {fileID: 1524153424}
   - component: {fileID: 1524153423}
   - component: {fileID: 1524153422}
+  - component: {fileID: 1524153425}
   m_Layer: 5
   m_Name: Ajustes
   m_TagString: Untagged
@@ -856,6 +903,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524153420}
   m_CullTransparentMesh: 1
+--- !u!114 &1524153425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524153420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &1533387597
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,22 @@ guid: 779849049de492440bc9bb0dc94a44ff
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PALETA_DE_COLORES
+    second: {fileID: 2100000, guid: 3aac4bda50495e1439ee8acee57bd900, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TIERRA
+    second: {fileID: 2100000, guid: 1e1acedd5100685489d3ddd18f9aa050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface3
+    second: {fileID: 2100000, guid: a9a89f8b200a69c45beefa029c9800ea, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

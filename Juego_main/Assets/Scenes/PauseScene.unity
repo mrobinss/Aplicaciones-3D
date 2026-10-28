@@ -226,7 +226,7 @@ RectTransform:
   m_GameObject: {fileID: 164892720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.94383, y: 3.0753145, z: 0.87127906}
+  m_LocalScale: {x: 4.550548, y: 2.8306732, z: 0.8019688}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 539332033}
   - component: {fileID: 539332032}
   - component: {fileID: 539332031}
+  - component: {fileID: 539332034}
   m_Layer: 5
   m_Name: BtnContinuar
   m_TagString: Untagged
@@ -502,7 +503,7 @@ RectTransform:
   m_GameObject: {fileID: 539332029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.0504, y: 5.4082756, z: 3.0504}
+  m_LocalScale: {x: 2.5381768, y: 4.500118, z: 2.5381768}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -595,6 +596,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539332029}
   m_CullTransparentMesh: 1
+--- !u!114 &539332034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539332029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &846057395
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,6 +894,7 @@ GameObject:
   - component: {fileID: 1348764927}
   - component: {fileID: 1348764926}
   - component: {fileID: 1348764925}
+  - component: {fileID: 1348764928}
   m_Layer: 5
   m_Name: BtnReiniciar
   m_TagString: Untagged
@@ -887,7 +911,7 @@ RectTransform:
   m_GameObject: {fileID: 1348764923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.0504, y: 5.7949657, z: 3.0504}
+  m_LocalScale: {x: 2.5651119, y: 4.873045, z: 2.5651119}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -980,6 +1004,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348764923}
   m_CullTransparentMesh: 1
+--- !u!114 &1348764928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348764923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &1663197800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1053,7 @@ RectTransform:
   m_GameObject: {fileID: 1663197800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.94383, y: 3.0753145, z: 0.87127906}
+  m_LocalScale: {x: 4.550548, y: 2.8306732, z: 0.8019688}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -1068,6 +1114,7 @@ GameObject:
   - component: {fileID: 1940603724}
   - component: {fileID: 1940603723}
   - component: {fileID: 1940603722}
+  - component: {fileID: 1940603725}
   m_Layer: 5
   m_Name: BtnSettings
   m_TagString: Untagged
@@ -1084,7 +1131,7 @@ RectTransform:
   m_GameObject: {fileID: 1940603720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1706119, y: 4.86085, z: 2.4302843}
+  m_LocalScale: {x: 0.9561436, y: 4.2902446, z: 2.2584631}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -1177,6 +1224,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940603720}
   m_CullTransparentMesh: 1
+--- !u!114 &1940603725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940603720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &2016301823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1359,7 @@ GameObject:
   - component: {fileID: 2040024684}
   - component: {fileID: 2040024683}
   - component: {fileID: 2040024682}
+  - component: {fileID: 2040024685}
   m_Layer: 5
   m_Name: BtnSalir
   m_TagString: Untagged
@@ -1306,7 +1376,7 @@ RectTransform:
   m_GameObject: {fileID: 2040024680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.0504, y: 5.4082756, z: 3.0504}
+  m_LocalScale: {x: 2.6190736, y: 4.6435456, z: 2.6190736}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1243538267}
@@ -1399,3 +1469,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040024680}
   m_CullTransparentMesh: 1
+--- !u!114 &2040024685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040024680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14

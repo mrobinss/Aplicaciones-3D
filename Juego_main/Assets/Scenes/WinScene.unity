@@ -585,7 +585,7 @@ RectTransform:
   m_GameObject: {fileID: 699701938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.5875974, y: 0.89437, z: 1}
+  m_LocalScale: {x: 4.9455824, y: 0.6831726, z: 0.8851}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1832021833}
@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 1394557692}
   - component: {fileID: 1394557691}
   - component: {fileID: 1394557690}
+  - component: {fileID: 1394557693}
   m_Layer: 5
   m_Name: BtnSiguienteNivel
   m_TagString: Untagged
@@ -853,7 +854,7 @@ RectTransform:
   m_GameObject: {fileID: 1394557688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3058221, y: 5.2029943, z: 3.6962}
+  m_LocalScale: {x: 3.2765987, y: 5.1569996, z: 3.6635253}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1832021833}
@@ -946,6 +947,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394557688}
   m_CullTransparentMesh: 1
+--- !u!114 &1394557693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394557688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &1700654163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1057,7 @@ GameObject:
   - component: {fileID: 1804488619}
   - component: {fileID: 1804488618}
   - component: {fileID: 1804488617}
+  - component: {fileID: 1804488620}
   m_Layer: 5
   m_Name: BtnVolverMapa
   m_TagString: Untagged
@@ -1050,7 +1074,7 @@ RectTransform:
   m_GameObject: {fileID: 1804488615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.1866417, y: 5.347417, z: 3.6962}
+  m_LocalScale: {x: 3.2146842, y: 5.3944745, z: 3.7287266}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1832021833}
@@ -1143,6 +1167,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804488615}
   m_CullTransparentMesh: 1
+--- !u!114 &1804488620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804488615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb5255cb478b7940a451d81b5328d8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.07
+  haloColor: {r: 1, g: 0.9, b: 0.5, a: 1}
+  haloAlpha: 0.2
+  haloSize: 15
+  brightenAlpha: 0.05
+  pressedScale: 0.92
+  clickFlash: 0.3
+  hoverSound: {fileID: 0}
+  clickSound: {fileID: 0}
+  speed: 14
 --- !u!1 &1832021832
 GameObject:
   m_ObjectHideFlags: 0
