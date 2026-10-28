@@ -10,10 +10,13 @@ public abstract class Tile : MonoBehaviour
     [SerializeField] protected Transform itemAnchor;
     // Opcional: indicador que se muestra al resaltar (para estaciones cuyo modelo esta oculto)
     [SerializeField] private GameObject highlightIndicator;
+    // Opcional: barra de progreso para acciones que toman tiempo (moler, amasar)
+    [SerializeField] private ProgressUI progressUIPrefab;
     [Header("Reference")]
     [SerializeField] protected Item initialItem; 
     // Private *****
     private MeshRenderer _meshRenderer;
+    private ProgressUI _progressUI;
     protected Item _item;
     protected Action _onActionComplete;
  
@@ -51,7 +54,8 @@ public abstract class Tile : MonoBehaviour
         // For Plate and food
         else if (_item && _item.TryGetComponent(out Cookware cookware2) && playerItem && playerItem.TryGetComponent(out Plate plate))
         {
-            if (cookware2.TryGetDish(out FoodData foodCooked))
+            // Una hoja que ya tiene comida no debe vaciar la olla (se perderia el plato)
+            if (!plate.IsCookedFood() && cookware2.TryGetDish(out FoodData foodCooked))
             {
                 plate.PlateUpSoup(foodCooked);
             }
@@ -62,7 +66,7 @@ public abstract class Tile : MonoBehaviour
         }
         else if (_item && _item.TryGetComponent(out Plate plateF) && playerItem && playerItem.TryGetComponent(out Cookware cookwareF))
         {
-            if (cookwareF.TryGetDish(out FoodData foodCooked))
+            if (!plateF.IsCookedFood() && cookwareF.TryGetDish(out FoodData foodCooked))
             {
                 plateF.PlateUpSoup(foodCooked);
             }
@@ -107,9 +111,33 @@ public abstract class Tile : MonoBehaviour
     
     // Coloca un item sobre la estacion desde otro sistema (por ejemplo, hojas sucias que regresan)
     public bool TryPlaceItem(Item item) => GrabItem(item);
+    public Item CurrentItem => _item;
 
     // Private Methods *****
     protected abstract void TakeAdvanceAction(PlayerInteraction owner);
+
+    protected void ShowProgress(float progressNormalized)
+    {
+        if (!progressUIPrefab) return;
+
+        if (!_progressUI)
+        {
+            GameObject canvas = GameObject.FindGameObjectWithTag("CanvasInteraction");
+            if (!canvas) return;
+
+            _progressUI = Instantiate(progressUIPrefab, canvas.transform);
+            _progressUI.SetTarget(itemAnchor);
+        }
+        _progressUI.SetProgress(progressNormalized);
+    }
+
+    protected void HideProgress()
+    {
+        if (!_progressUI) return;
+
+        _progressUI.Close();
+        _progressUI = null;
+    }
 
     public void StartHighlight()
     {

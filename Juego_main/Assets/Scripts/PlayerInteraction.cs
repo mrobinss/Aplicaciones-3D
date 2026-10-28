@@ -24,6 +24,10 @@ public class PlayerInteraction : MonoBehaviour
     }
     private void Update()
     {
+        // Recalcular cada frame: con estaciones pegadas (los hornos) las zonas se solapan y,
+        // si solo se calcula al entrar o salir de una, se queda apuntando a la estacion anterior
+        RefreshClosestTile();
+
         if (!_closestTile) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -43,9 +47,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.TryGetComponent(out Tile tile) && !_tileCloseList.Contains(tile))
         {
             _tileCloseList.Add(tile);
-            
-            if(_closestTile) _closestTile.StopHighlight();
-            _closestTile = GetCloserTile();
+            RefreshClosestTile();
         }
     }
 
@@ -54,13 +56,23 @@ public class PlayerInteraction : MonoBehaviour
         if (other.TryGetComponent(out Tile tile))
         {
             _tileCloseList.Remove(tile);
-            
-            if(_closestTile) _closestTile.StopHighlight();
-            _closestTile = GetCloserTile();
+            RefreshClosestTile();
         }
     }
 
     // Private Methods *****
+    private void RefreshClosestTile()
+    {
+        _tileCloseList.RemoveAll(tile => !tile);
+
+        Tile closest = GetCloserTile();
+        if (closest == _closestTile) return;
+
+        if (_closestTile) _closestTile.StopHighlight();
+        _closestTile = closest;
+        if (_closestTile) _closestTile.StartHighlight();
+    }
+
     private Tile GetCloserTile()
     {
         if (_tileCloseList.Count <= 0) return null;
@@ -69,15 +81,17 @@ public class PlayerInteraction : MonoBehaviour
         float minDistance = Mathf.Infinity;
         foreach (Tile tile in _tileCloseList)
         {
-            float newDistance = Vector3.Distance(transform.position, tile.transform.position);
+            // Distancia al borde de la estacion (no a su centro): funciona igual con estaciones grandes
+            Vector3 point = tile.TryGetComponent(out Collider tileCollider) ? tileCollider.ClosestPoint(transform.position) : tile.transform.position;
+            point.y = transform.position.y;
+            float newDistance = Vector3.Distance(transform.position, point);
             if (newDistance <= minDistance)
             {
                 winnerTile = tile;
                 minDistance = newDistance;
             }
         }
-        
-        if(winnerTile) winnerTile.StartHighlight();
+
         return winnerTile;
     }
     

@@ -3,9 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    // Iniciar lleva al mapa de niveles
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneHistory.Load("MapScene");
     }
 
     public void OpenSettings()

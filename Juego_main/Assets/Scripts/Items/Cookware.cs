@@ -30,17 +30,23 @@ public class Cookware : Item
     [SerializeField] private Transform potSoup;
     [SerializeField] private Vector2 yMinMaxPotSoup;
     [SerializeField] private ProgressUI _progressUI;
+    // Segundos que aguanta la comida lista en el horno antes de quemarse
+    [SerializeField] private float burnTime = 10f;
+    [SerializeField] private Color burnedColor = new Color(0.18f, 0.1f, 0.06f, 1f);
 
     // Private *****
     private CookwareState _cookwareState;
     private List<FoodData> _foodDataList = new List<FoodData>();
     private float _cookwareTimer;
+    private Renderer _soupRenderer;
 
     // MonoBehavior Callbacks *****
 
     private void Start()
     {
-        potSoup.position = new Vector3(potSoup.position.x, yMinMaxPotSoup.x, potSoup.position.z);
+        // localPosition: con position (mundo) el liquido quedaba bajo el piso cuando la olla esta en alto
+        potSoup.localPosition = new Vector3(potSoup.localPosition.x, yMinMaxPotSoup.x, potSoup.localPosition.z);
+        _soupRenderer = potSoup.GetComponent<Renderer>();
     }
 
     // Private Methods *****
@@ -62,11 +68,12 @@ public class Cookware : Item
             case CookwareState.Cooking:
                 steamParticles.Play();
                 _cookwareState = CookwareState.CookedCooking;
-                _cookwareTimer = 5; // 5 seconds to burn
+                _cookwareTimer = burnTime;
                 break;
             case CookwareState.CookedCooking:
                 Debug.Log("your comnida is burn");
                 _cookwareState = CookwareState.Burned;
+                SetBurnedLook(true);
                 break;
         }
     }
@@ -135,7 +142,7 @@ public class Cookware : Item
         else if (_cookwareState == CookwareState.Cooked)
         {
             _cookwareState = CookwareState.CookedCooking;
-            _cookwareTimer = 5f;
+            _cookwareTimer = burnTime;
         }
     }
 
@@ -150,9 +157,38 @@ public class Cookware : Item
     
     private bool IsCooking() => (_cookwareState == CookwareState.Cooking || _cookwareState == CookwareState.CookedCooking);
 
+    // Vacia la olla (por ejemplo, comida quemada que se bota en la composta)
+    public bool TryEmpty()
+    {
+        if (_foodDataList.Count == 0 && _cookwareState == CookwareState.Empty) return false;
+
+        _foodDataList.Clear();
+        _cookwareState = CookwareState.Empty;
+        steamParticles.Stop();
+        SetBurnedLook(false);
+        potSoup.localPosition = new Vector3(potSoup.localPosition.x, GetSoupLevel(), potSoup.localPosition.z);
+        return true;
+    }
+
+    // La comida quemada se ve oscura para que el jugador sepa que ya no se puede servir
+    private void SetBurnedLook(bool burned)
+    {
+        if (!_soupRenderer) return;
+
+        if (!burned)
+        {
+            _soupRenderer.SetPropertyBlock(null);
+            return;
+        }
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
+        block.SetColor("_BaseColor", burnedColor);
+        _soupRenderer.SetPropertyBlock(block);
+    }
+
     public bool TryGetDish(out FoodData foodCooked)
     {
-        if (_cookwareState == CookwareState.Cooked)
+        // Tambien se puede servir con la olla todavia en el horno (antes de que se queme)
+        if (_cookwareState == CookwareState.Cooked || _cookwareState == CookwareState.CookedCooking)
         {
             foodCooked = recipe.result;
             _foodDataList.Clear();

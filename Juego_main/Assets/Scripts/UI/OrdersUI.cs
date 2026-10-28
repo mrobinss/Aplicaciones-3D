@@ -33,9 +33,13 @@ public class OrdersUI : MonoBehaviour
     
     private void GameManager_OnOrderSuccess(object sender, EventArgs eventArgs)
     {
+        // Quitar pedidos ya destruidos o vencidos; antes se usaba siempre el indice 0 aunque ese
+        // pedido ya no existiera, lo que lanzaba un error y dejaba trabada la entrega
+        _activeOrders.RemoveAll(order => !order || !order.IsPending());
         if (_activeOrders.Count <= 0) return;
 
-        _activeOrders[0].SuccessAndDestroy();
-
+        OrderUI completedOrder = _activeOrders[0];
+        _activeOrders.RemoveAt(0);
+        completedOrder.SuccessAndDestroy();
     }
 }

@@ -22,6 +22,7 @@ public class CuttingTable : Tile
         if (!_isCutting) return;
         
         _timeToCut -= Time.deltaTime;
+        ShowProgress(1f - Mathf.Clamp01(_timeToCut / timeToCut));
 
         if (_timeToCut <= 0 && _item.TryGetComponent(out Food food) && food.CanBeCut())
         {
@@ -59,6 +60,8 @@ public class CuttingTable : Tile
         if (!_item && !_isCutting) return;
         
         _isCutting = false;
+        // El corte se reinicia en la siguiente pulsacion, asi que la barra se oculta al soltar
+        HideProgress();
         _onActionComplete();
     }
 

@@ -12,6 +12,7 @@ public class ProgressUI : MonoBehaviour
     // Private *****
     private Camera _camera;
     private Item _followingItem;
+    private Transform _followingTarget;
     private bool _destroying;
     
     // MonoBehavior Methods
@@ -28,9 +29,9 @@ public class ProgressUI : MonoBehaviour
 
     void Update()
     {
-        if (!_followingItem) return;
-        
-        Vector3 progressUiPosition = _camera.WorldToScreenPoint(_followingItem.transform.position);
+        if (!_followingTarget) return;
+
+        Vector3 progressUiPosition = _camera.WorldToScreenPoint(_followingTarget.position);
         progressUiPosition = new Vector3(progressUiPosition.x, progressUiPosition.y - 45, progressUiPosition.z);
         transform.position = progressUiPosition;
     }
@@ -44,7 +45,27 @@ public class ProgressUI : MonoBehaviour
     public void Set(Item item)
     {
         _followingItem = item;
+        _followingTarget = item.transform;
         _followingItem.OnItemProgressChange += Item_OnItemProgressChange;
+    }
+
+    // Barra para acciones de estaciones (moler, amasar): sigue un punto y se llena manualmente
+    public void SetTarget(Transform target)
+    {
+        _followingTarget = target;
+    }
+
+    public void SetProgress(float progressNormalized)
+    {
+        progressBar.fillAmount = progressNormalized;
+    }
+
+    public void Close()
+    {
+        if (_destroying) return;
+
+        _destroying = true;
+        LeanTween.scale(gameObject, Vector3.zero, 0.3f).setEase(LeanTweenType.easeInBack).setOnComplete(() => Destroy(gameObject));
     }
     
     // Private Methods

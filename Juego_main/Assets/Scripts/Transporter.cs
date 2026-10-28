@@ -46,17 +46,20 @@ public class Transporter : Tile
     private void SuccessOrder()
     {
         Debug.Log("Order success");
-        GameManager.Instance.SuccessOrder();
+        // Liberar la ventana de entrega primero: si algo falla mas adelante, la estacion no queda trabada
+        Item deliveredPlate = _item;
+        DropItem();
+        Destroy(deliveredPlate.gameObject, 0.25f);
+
         AudioManager.CreateSFX(successAudio, 0.7f);
         GameObject successVfx = Instantiate(successVfxPrefab, itemAnchor, false);
         successVfx.transform.localPosition = Vector3.zero;
-        Destroy(_item.gameObject, 0.25f);
-        DropItem();
-
         if (dirtyPlatePrefab) StartCoroutine(ReturnDirtyPlate());
+
+        GameManager.Instance.SuccessOrder();
     }
 
-    // Despues de un tiempo la hoja usada regresa sucia a un meson libre
+    // Despues de un tiempo la hoja usada regresa sucia al meson de regreso, apilandose con las demas
     private IEnumerator ReturnDirtyPlate()
     {
         yield return new WaitForSeconds(dirtyPlateDelay);
@@ -67,11 +70,17 @@ public class Transporter : Tile
             {
                 if (!tile) continue;
 
+                if (tile.CurrentItem && tile.CurrentItem.TryGetComponent(out DirtyPlate stack))
+                {
+                    stack.AddLeaves(1);
+                    yield break;
+                }
+
                 Item dirtyPlate = Instantiate(dirtyPlatePrefab);
                 if (tile.TryPlaceItem(dirtyPlate)) yield break;
                 Destroy(dirtyPlate.gameObject);
             }
-            // Todos los mesones estan ocupados: intentar de nuevo mas tarde
+            // El meson esta ocupado con otra cosa: intentar de nuevo mas tarde
             yield return new WaitForSeconds(dirtyPlateRetryTime);
         }
     }

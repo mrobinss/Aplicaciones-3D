@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodData: {fileID: 11400000, guid: 21bee6486d492fb4883d11fb42dc6ff5, type: 2}
-  nextFoodData: {fileID: 11400000, guid: 1df9e7ce288c67545a917323f3bef9d9, type: 2}
+  nextFoodData: {fileID: 0}

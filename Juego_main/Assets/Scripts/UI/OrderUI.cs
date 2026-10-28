@@ -46,8 +46,12 @@ public class OrderUI : MonoBehaviour
         _actualOrderTime = _orderTime;
     }
 
+    // Un pedido esta pendiente mientras su tiempo corre (no vencido ni ya entregado)
+    public bool IsPending() => _started;
+
     public void SuccessAndDestroy()
     {
+        _started = false;
         LeanTween.color(gameObject.GetComponent<RectTransform>(), Color.green, 0.5f).setDestroyOnComplete(true);
     }
 }

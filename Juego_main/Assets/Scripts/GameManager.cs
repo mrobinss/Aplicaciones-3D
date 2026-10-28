@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,12 +36,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float gameTime;
     [SerializeField] private List<RecipeData> recipeDataList = new List<RecipeData>();
 
+    [Header("Resultado del nivel")]
+    // Pedidos entregados necesarios para la 1ra, 2da y 3ra estrella
+    [SerializeField] private int[] ordersForStars = { 2, 4, 6 };
+    [SerializeField] private int starsToWin = 2;
+    [SerializeField] private string winScene = "WinScene";
+    [SerializeField] private string loseScene = "LoseScene";
+    [SerializeField] private float resultDelay = 1.5f;
+
     // Private *****
     private GameState _gameState;
     private float _stateTimer;
     private float _timeHelper;
     private float _orderTimer;
     private int _coins;
+    private int _deliveredOrders;
 
     private List<RecipeData> _activeRecipes = new List<RecipeData>();
 
@@ -96,14 +106,44 @@ public class GameManager : MonoBehaviour
     // public Methods *****
     public void SetGameOver()
     {
+        if (_gameState == GameState.GameOver) return;
+
         _gameState = GameState.GameOver;
+        OnTimeChange?.Invoke(this, 0);
+
+        int stars = GetStars();
+        bool won = stars >= starsToWin;
+        LevelResult.Set(_deliveredOrders, stars, won);
+        StartCoroutine(LoadResultScene(won ? winScene : loseScene));
     }
 
     public void SuccessOrder()
     {
+        if (_gameState == GameState.GameOver) return;
+
+        _deliveredOrders++;
         OnOrderSuccess?.Invoke(this, EventArgs.Empty);
     }
-    
+
+    public int GetDeliveredOrders() => _deliveredOrders;
+
     // Private Method
+    private int GetStars()
+    {
+        int stars = 0;
+        foreach (int required in ordersForStars)
+        {
+            if (_deliveredOrders >= required) stars++;
+        }
+        return stars;
+    }
+
+    // Pequena pausa para que se vea el reloj en 00:00 y luego el resultado aparece como pop-up
+    // encima del nivel (la escena de resultado pausa el juego que queda detras)
+    private IEnumerator LoadResultScene(string sceneName)
+    {
+        yield return new WaitForSecondsRealtime(resultDelay);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+    }
 
 }
