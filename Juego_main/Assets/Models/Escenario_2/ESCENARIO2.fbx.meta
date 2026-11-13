@@ -3,7 +3,22 @@ guid: dd3cbf3397e6f904d92bd40727aac2aa
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LIQUIDO_SUERO
+    second: {fileID: 2100000, guid: 744977b9585b43b4a8b831cea570f521, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MELAO_BREVAS
+    second: {fileID: 2100000, guid: 65c9d0788cdf458c83be8c10dd3f3e52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MELAO_MORA
+    second: {fileID: 2100000, guid: c178ccfee141421f8cffe07a4d5e6400, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -42,7 +57,7 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
+    importCameras: 0
     importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
