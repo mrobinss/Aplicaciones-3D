@@ -31,15 +31,16 @@ public class OrdersUI : MonoBehaviour
         _activeOrders.Add(newOrder);
     }
     
-    private void GameManager_OnOrderSuccess(object sender, EventArgs eventArgs)
+    private void GameManager_OnOrderSuccess(object sender, FoodData dish)
     {
         // Quitar pedidos ya destruidos o vencidos; antes se usaba siempre el indice 0 aunque ese
         // pedido ya no existiera, lo que lanzaba un error y dejaba trabada la entrega
         _activeOrders.RemoveAll(order => !order || !order.IsPending());
         if (_activeOrders.Count <= 0) return;
 
-        OrderUI completedOrder = _activeOrders[0];
-        _activeOrders.RemoveAt(0);
+        // Se completa el pedido mas antiguo de ese mismo plato (o el mas antiguo si ninguno coincide)
+        OrderUI completedOrder = _activeOrders.Find(order => order.Dish == dish) ?? _activeOrders[0];
+        _activeOrders.Remove(completedOrder);
         completedOrder.SuccessAndDestroy();
     }
 }

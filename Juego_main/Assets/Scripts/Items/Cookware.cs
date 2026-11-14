@@ -23,6 +23,9 @@ public class Cookware : Item
     [SerializeField] private int maxCapacity = 1;
     // TODO: Change this to a list
     [SerializeField] private RecipeData recipe;
+    // Otras recetas que puede preparar la misma olla (por ejemplo, melao de mora o de breva).
+    // La receta se elige con el primer ingrediente que se echa.
+    [SerializeField] private List<RecipeData> alternativeRecipes = new List<RecipeData>();
     [SerializeField] private ParticleSystem steamParticles;
     
     [Header("Pot")]
@@ -39,6 +42,7 @@ public class Cookware : Item
     private List<FoodData> _foodDataList = new List<FoodData>();
     private float _cookwareTimer;
     private Renderer _soupRenderer;
+    private RecipeData _baseRecipe;
 
     // MonoBehavior Callbacks *****
 
@@ -88,6 +92,24 @@ public class Cookware : Item
     }
 
 
+    // Con la olla vacia, el primer ingrediente decide cual receta se prepara
+    private void ChooseRecipe(FoodData foodData)
+    {
+        if (_foodDataList.Count > 0 || alternativeRecipes.Count == 0) return;
+
+        if (!_baseRecipe) _baseRecipe = recipe;
+        List<RecipeData> options = new List<RecipeData> { _baseRecipe };
+        options.AddRange(alternativeRecipes);
+        foreach (RecipeData option in options)
+        {
+            if (!option || !option.materials.Exists(material => material.food == foodData)) continue;
+
+            recipe = option;
+            if (option.cookwareMaterial && _soupRenderer) _soupRenderer.sharedMaterial = option.cookwareMaterial;
+            return;
+        }
+    }
+
     // Solo acepta ingredientes de la receta y hasta la cantidad que pide cada uno
     private bool RecipeAccepts(FoodData foodData)
     {
@@ -111,6 +133,7 @@ public class Cookware : Item
     public bool AddFood(FoodData foodData)
     {
         if (_foodDataList.Count >= maxCapacity || foodData.foodType != FoodType.Processed) return false;
+        ChooseRecipe(foodData);
         if (!RecipeAccepts(foodData)) return false;
 
         _foodDataList.Add(foodData);
@@ -183,6 +206,14 @@ public class Cookware : Item
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         block.SetColor("_BaseColor", burnedColor);
         _soupRenderer.SetPropertyBlock(block);
+    }
+
+    // Lo que se serviria de la olla, sin sacarlo todavia
+    public bool TryPeekDish(out FoodData foodCooked)
+    {
+        bool ready = _cookwareState == CookwareState.Cooked || _cookwareState == CookwareState.CookedCooking;
+        foodCooked = ready ? recipe.result : null;
+        return ready;
     }
 
     public bool TryGetDish(out FoodData foodCooked)

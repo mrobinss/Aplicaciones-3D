@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public event EventHandler<int> OnCurrencyChange;
     public event EventHandler<float> OnTimeChange;
     public event EventHandler<RecipeData> OnOrderCreate;
-    public event EventHandler OnOrderSuccess;
+    public event EventHandler<FoodData> OnOrderSuccess;
     
     // Serialized *****
     [SerializeField] private float preGameTime;
@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<RecipeData> recipeDataList = new List<RecipeData>();
 
     [Header("Resultado del nivel")]
+    // Numero del nivel en el orden del mapa (ganarlo desbloquea el siguiente)
+    [SerializeField] private int levelNumber = 1;
     // Pedidos entregados necesarios para la 1ra, 2da y 3ra estrella
     [SerializeField] private int[] ordersForStars = { 2, 4, 6 };
     [SerializeField] private int starsToWin = 2;
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
     // MonoBehavior Methods
     private void Start()
     {
+        LevelProgress.CurrentLevel = levelNumber;
+
         // Idle time
         _stateTimer = preGameTime;
         _coins = 0;
@@ -88,7 +92,8 @@ public class GameManager : MonoBehaviour
 
                 if (_orderTimer <= 0 && recipeDataList.Count > 0)
                 {
-                    RecipeData newOrder = recipeDataList[0];
+                    // Si el nivel tiene varios platos, cada pedido es uno al azar
+                    RecipeData newOrder = recipeDataList[UnityEngine.Random.Range(0, recipeDataList.Count)];
                     _activeRecipes.Add(newOrder);
                     OnOrderCreate?.Invoke(this,newOrder);
                     _orderTimer = 35;
@@ -114,18 +119,30 @@ public class GameManager : MonoBehaviour
         int stars = GetStars();
         bool won = stars >= starsToWin;
         LevelResult.Set(_deliveredOrders, stars, won);
+        if (won) LevelProgress.Unlock(levelNumber + 1);
         StartCoroutine(LoadResultScene(won ? winScene : loseScene));
     }
 
-    public void SuccessOrder()
+    public void SuccessOrder(FoodData dish)
     {
         if (_gameState == GameState.GameOver) return;
 
         _deliveredOrders++;
-        OnOrderSuccess?.Invoke(this, EventArgs.Empty);
+        OnOrderSuccess?.Invoke(this, dish);
     }
 
     public int GetDeliveredOrders() => _deliveredOrders;
+
+    // El plato entregado es el resultado de alguna receta que se pide en este nivel
+    public bool IsOrderDish(FoodData dish)
+    {
+        if (!dish) return false;
+        foreach (RecipeData recipe in recipeDataList)
+        {
+            if (recipe && recipe.result == dish) return true;
+        }
+        return false;
+    }
 
     // Private Method
     private int GetStars()

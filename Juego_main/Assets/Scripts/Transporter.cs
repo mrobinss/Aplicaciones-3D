@@ -28,12 +28,13 @@ public class Transporter : Tile
     {
         _onActionComplete = onActionComplete;
         
-        if (playerItem && playerItem.TryGetComponent(out Plate plate) && plate.IsCookedFood())
+        // Solo se recibe el plato que piden los pedidos (una hoja con el plato a medio armar no sirve)
+        if (playerItem && playerItem.TryGetComponent(out Plate plate) && plate.IsCookedFood() && GameManager.Instance.IsOrderDish(plate.GetDish()))
         {
             if (GrabItem(playerItem))
             {
                 owner.DropItem();
-                SuccessOrder();
+                SuccessOrder(plate.GetDish());
             }
             
         }
@@ -43,7 +44,7 @@ public class Transporter : Tile
     {
         
     }
-    private void SuccessOrder()
+    private void SuccessOrder(FoodData dish)
     {
         Debug.Log("Order success");
         // Liberar la ventana de entrega primero: si algo falla mas adelante, la estacion no queda trabada
@@ -56,7 +57,7 @@ public class Transporter : Tile
         successVfx.transform.localPosition = Vector3.zero;
         if (dirtyPlatePrefab) StartCoroutine(ReturnDirtyPlate());
 
-        GameManager.Instance.SuccessOrder();
+        GameManager.Instance.SuccessOrder(dish);
     }
 
     // Despues de un tiempo la hoja usada regresa sucia al meson de regreso, apilandose con las demas

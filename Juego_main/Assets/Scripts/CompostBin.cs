@@ -66,6 +66,11 @@ public class CompostBin : Tile
         {
             owner.RemoveItem();
         }
+        // Hoja con un plato a medio armar: se bota la comida y el jugador se queda con la hoja limpia
+        else if (playerItem.TryGetComponent(out Plate plate) && plate.IsCookedFood())
+        {
+            plate.Unplate();
+        }
         else
         {
             return;

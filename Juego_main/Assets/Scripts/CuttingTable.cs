@@ -53,6 +53,13 @@ public class CuttingTable : Tile
                 if( owner.GrabItem(_item)) DropItem();
             }
         }
+        // Con la hoja en la mano se sirve directo lo ya procesado (por ejemplo, la cuajada del exprimidor)
+        else if (playerItem && _item && playerItem.TryGetComponent(out Plate plate) &&
+                 _item.TryGetComponent(out Food done) && !done.CanBeCut() && plate.TryAddFood(done.GetFoodData()))
+        {
+            Destroy(_item.gameObject);
+            DropItem();
+        }
     }
 
     public override void ActionComplete()

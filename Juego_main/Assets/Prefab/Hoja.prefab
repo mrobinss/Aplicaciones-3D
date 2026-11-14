@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemAnchor: {fileID: 3959667009896792076}
+  platingRecipes:
+  - {fileID: 11400000, guid: bfb37501a784c3e41bb26fa07ca1a9c9, type: 2}
 --- !u!1 &2570687365024475662
 GameObject:
   m_ObjectHideFlags: 0

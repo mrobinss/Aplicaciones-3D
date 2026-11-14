@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56a04ef1a4b4b549b9ba31e7a888c1b, type: 3}
+  m_Name: CuajadaConMelao
+  m_EditorClassIdentifier: 
+  materials:
+  - food: {fileID: 11400000, guid: ffcbb6f4e2467e646a4fc81c74ed3a4e, type: 2}
+    amount: 1
+  - food: {fileID: 11400000, guid: a3aba765f9896604cafda9160fd5d5cf, type: 2}
+    amount: 1
+  result: {fileID: 11400000, guid: b4909d094e02bc94e9a4218539f2f043, type: 2}
+  cookingTime: 0
+  orderIngredients:
+  - {fileID: 11400000, guid: ffcbb6f4e2467e646a4fc81c74ed3a4e, type: 2}
+  - {fileID: 11400000, guid: c49df00debaadeb4b9548604e07ed0cd, type: 2}

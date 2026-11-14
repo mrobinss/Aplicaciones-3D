@@ -54,25 +54,23 @@ public abstract class Tile : MonoBehaviour
         // For Plate and food
         else if (_item && _item.TryGetComponent(out Cookware cookware2) && playerItem && playerItem.TryGetComponent(out Plate plate))
         {
-            // Una hoja que ya tiene comida no debe vaciar la olla (se perderia el plato)
-            if (!plate.IsCookedFood() && cookware2.TryGetDish(out FoodData foodCooked))
-            {
-                plate.PlateUpSoup(foodCooked);
-            }
-            else
-            {
-                Debug.Log("Food not ready");
-            }
+            ServeFromCookware(cookware2, plate);
         }
         else if (_item && _item.TryGetComponent(out Plate plateF) && playerItem && playerItem.TryGetComponent(out Cookware cookwareF))
         {
-            if (!plateF.IsCookedFood() && cookwareF.TryGetDish(out FoodData foodCooked))
+            ServeFromCookware(cookwareF, plateF);
+        }
+        // Armar el plato sobre la hoja con un ingrediente listo (por ejemplo, la cuajada)
+        else if (_item && _item.TryGetComponent(out Plate plateOnTile) && playerItem && playerItem.TryGetComponent(out Food foodInHand))
+        {
+            if (plateOnTile.TryAddFood(foodInHand.GetFoodData())) owner.RemoveItem();
+        }
+        else if (_item && _item.TryGetComponent(out Food foodOnTile) && playerItem && playerItem.TryGetComponent(out Plate plateInHand))
+        {
+            if (plateInHand.TryAddFood(foodOnTile.GetFoodData()))
             {
-                plateF.PlateUpSoup(foodCooked);
-            }
-            else
-            {
-                Debug.Log("Food not ready");
+                Destroy(_item.gameObject);
+                DropItem();
             }
         }
         else
@@ -109,6 +107,19 @@ public abstract class Tile : MonoBehaviour
         }
     }
     
+    // La olla solo se vacia si la hoja puede recibir lo que tiene (si no, se perderia la comida)
+    private static void ServeFromCookware(Cookware cookware, Plate plate)
+    {
+        if (cookware.TryPeekDish(out FoodData dish) && plate.CanAddFood(dish) && cookware.TryGetDish(out FoodData foodCooked))
+        {
+            plate.TryAddFood(foodCooked);
+        }
+        else
+        {
+            Debug.Log("Food not ready");
+        }
+    }
+
     // Coloca un item sobre la estacion desde otro sistema (por ejemplo, hojas sucias que regresan)
     public bool TryPlaceItem(Item item) => GrabItem(item);
     public Item CurrentItem => _item;

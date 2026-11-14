@@ -8,6 +8,9 @@ public class OrderUI : MonoBehaviour
 {
     // Serialized 
     [SerializeField] private Image timerImage;
+    // Icono del plato y de sus ingredientes; se cambian segun la receta del pedido
+    [SerializeField] private Image dishIcon;
+    [SerializeField] private Image[] ingredientIcons;
     // private *****
     private bool _started;
     private float _orderTime;
@@ -44,10 +47,34 @@ public class OrderUI : MonoBehaviour
         _started = true;
         _orderTime = 60;
         _actualOrderTime = _orderTime;
+        Dish = recipeData ? recipeData.result : null;
+        ShowRecipe(recipeData);
+    }
+
+    // Private Methods
+    // Cada nivel pide un plato distinto: la tarjeta muestra el de la receta (si tiene imagen)
+    private void ShowRecipe(RecipeData recipeData)
+    {
+        if (!recipeData) return;
+
+        if (dishIcon && recipeData.result && recipeData.result.itemSprite) dishIcon.sprite = recipeData.result.itemSprite;
+
+        if (ingredientIcons == null || recipeData.orderIngredients == null || recipeData.orderIngredients.Count == 0) return;
+        for (int i = 0; i < ingredientIcons.Length; i++)
+        {
+            if (!ingredientIcons[i]) continue;
+
+            FoodData ingredient = i < recipeData.orderIngredients.Count ? recipeData.orderIngredients[i] : null;
+            ingredientIcons[i].gameObject.SetActive(ingredient && ingredient.itemSprite);
+            if (ingredient && ingredient.itemSprite) ingredientIcons[i].sprite = ingredient.itemSprite;
+        }
     }
 
     // Un pedido esta pendiente mientras su tiempo corre (no vencido ni ya entregado)
     public bool IsPending() => _started;
+
+    // Plato que pide este pedido
+    public FoodData Dish { get; private set; }
 
     public void SuccessAndDestroy()
     {

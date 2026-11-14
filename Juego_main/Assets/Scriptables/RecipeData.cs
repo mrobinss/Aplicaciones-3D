@@ -18,4 +18,8 @@ public class RecipeData : ScriptableObject
     public FoodData result;
     [Range(0,999)]
     public float cookingTime;
+    // Opcional: ingredientes que se muestran en la tarjeta del pedido (si esta vacio se deja la del prefab)
+    public List<FoodData> orderIngredients = new List<FoodData>();
+    // Opcional: color del contenido de la olla mientras se prepara esta receta
+    public Material cookwareMaterial;
 }

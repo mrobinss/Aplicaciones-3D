@@ -137,6 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerImage: {fileID: 6821096183218926824}
+  dishIcon: {fileID: 6821096182810696666}
+  ingredientIcons:
+  - {fileID: 6821096182314166754}
+  - {fileID: 6821096182610101888}
 --- !u!1 &6821096182610101894
 GameObject:
   m_ObjectHideFlags: 0

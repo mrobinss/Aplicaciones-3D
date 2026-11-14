@@ -1,0 +1,1948 @@
+fileFormatVersion: 2
+guid: 2c00f6a853a9b57488f5367e71111feb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5205057644397256602
+    second: Tramo1_00
+  - first:
+      213: 1757101627987037532
+    second: Tramo1_01
+  - first:
+      213: -7211817535041146843
+    second: Tramo1_02
+  - first:
+      213: -5660753399076879017
+    second: Tramo1_03
+  - first:
+      213: 5842560223980103890
+    second: Tramo1_04
+  - first:
+      213: 1681476936532412553
+    second: Tramo1_05
+  - first:
+      213: 1433800130088629386
+    second: Tramo1_06
+  - first:
+      213: -7257529907704458935
+    second: Tramo1_07
+  - first:
+      213: -6829675277430359622
+    second: Tramo1_08
+  - first:
+      213: 4943929745067640785
+    second: Tramo1_09
+  - first:
+      213: -2720815007384044584
+    second: Tramo1_10
+  - first:
+      213: -1985820683291655568
+    second: Tramo1_11
+  - first:
+      213: 8664221366710385826
+    second: Tramo2_00
+  - first:
+      213: -5160945850401037883
+    second: Tramo2_01
+  - first:
+      213: -3000675518051897932
+    second: Tramo2_02
+  - first:
+      213: 7439621557827274372
+    second: Tramo2_03
+  - first:
+      213: 7162785402585488906
+    second: Tramo2_04
+  - first:
+      213: -2736744203983564513
+    second: Tramo2_05
+  - first:
+      213: 5394754003958265968
+    second: Tramo2_06
+  - first:
+      213: -1458053779208809395
+    second: Tramo2_07
+  - first:
+      213: 6358843809603918627
+    second: Tramo2_08
+  - first:
+      213: -7936870693985339895
+    second: Tramo2_09
+  - first:
+      213: -4993740725456345702
+    second: Tramo2_10
+  - first:
+      213: -4092963471957085176
+    second: Tramo2_11
+  - first:
+      213: -791984914128928282
+    second: Tramo2_12
+  - first:
+      213: 3636569251004518274
+    second: Tramo2_13
+  - first:
+      213: 21202046960014794
+    second: Tramo2_14
+  - first:
+      213: 7648516268563254325
+    second: Tramo2_15
+  - first:
+      213: -5015751081560465179
+    second: Tramo2_16
+  - first:
+      213: 741300855168932672
+    second: Tramo2_17
+  - first:
+      213: 8684751188425667354
+    second: Tramo2_18
+  - first:
+      213: -6950193414344751391
+    second: Tramo2_19
+  - first:
+      213: -7849717942923457535
+    second: Tramo2_20
+  - first:
+      213: -6206384996319747940
+    second: Tramo2_21
+  - first:
+      213: -2573891726871042333
+    second: Tramo2_22
+  - first:
+      213: 5227190926514056895
+    second: Tramo2_23
+  - first:
+      213: -7030317785030493478
+    second: Tramo3_00
+  - first:
+      213: -4795021919916112288
+    second: Tramo3_01
+  - first:
+      213: -843311977851730887
+    second: Tramo3_02
+  - first:
+      213: 6920753463387918252
+    second: Tramo3_03
+  - first:
+      213: -3572798092917703644
+    second: Tramo3_04
+  - first:
+      213: 5604233349854394486
+    second: Tramo3_05
+  - first:
+      213: 3744159385972243260
+    second: Tramo3_06
+  - first:
+      213: -220299922563066533
+    second: Tramo3_07
+  - first:
+      213: 2413565668129972318
+    second: Tramo3_08
+  - first:
+      213: -6241005037514733432
+    second: Tramo3_09
+  - first:
+      213: 5630737308437188418
+    second: Tramo3_10
+  - first:
+      213: 1188786202087832018
+    second: Tramo4_00
+  - first:
+      213: 8812040995547964131
+    second: Tramo4_01
+  - first:
+      213: 8740798028238362867
+    second: Tramo4_02
+  - first:
+      213: -3773557452529131331
+    second: Tramo4_03
+  - first:
+      213: -8505134019495349798
+    second: Tramo4_04
+  - first:
+      213: 4009231865058276551
+    second: Tramo4_05
+  - first:
+      213: -7972369176645502554
+    second: Tramo4_06
+  - first:
+      213: 4598752777009908698
+    second: Tramo4_07
+  - first:
+      213: -3617009533957070364
+    second: Tramo4_08
+  - first:
+      213: -2021740936432347011
+    second: Tramo4_09
+  - first:
+      213: 6745590476105802977
+    second: Tramo4_10
+  - first:
+      213: -9151087656564988844
+    second: Tramo4_11
+  - first:
+      213: -2141588120406560594
+    second: Tramo4_12
+  - first:
+      213: -8458369043200595416
+    second: Tramo5_00
+  - first:
+      213: -5158029891785198439
+    second: Tramo5_01
+  - first:
+      213: 818080272142162321
+    second: Tramo5_02
+  - first:
+      213: -7980388862455884733
+    second: Tramo5_03
+  - first:
+      213: 3272116770450575375
+    second: Tramo5_04
+  - first:
+      213: -4610513481221859198
+    second: Tramo5_05
+  - first:
+      213: 4471897431090161926
+    second: Tramo5_06
+  - first:
+      213: 5562526022282608963
+    second: Tramo5_07
+  - first:
+      213: 8562737531600206252
+    second: Tramo5_08
+  - first:
+      213: 3219238828296232296
+    second: Tramo6_00
+  - first:
+      213: -8940613137809853639
+    second: Tramo6_01
+  - first:
+      213: -9055068157793927314
+    second: Tramo6_02
+  - first:
+      213: -7246814647318929078
+    second: Tramo6_03
+  - first:
+      213: 8046221997679791440
+    second: Tramo6_04
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tramo1_00
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 251
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660254666abe3c7b0800000000000000
+      internalID: -5205057644397256602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_01
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 239
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d8d620f9a726810800000000000000
+      internalID: 1757101627987037532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_02
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 228
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52070f6692a7aeb90800000000000000
+      internalID: -7211817535041146843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_03
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 218
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75500f686c6f071b0800000000000000
+      internalID: -5660753399076879017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_04
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 210
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d829298191f41150800000000000000
+      internalID: 5842560223980103890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_05
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 203
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988c60c6d5ec55710800000000000000
+      internalID: 1681476936532412553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_06
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 197
+        width: 25
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8477d82f91e5e310800000000000000
+      internalID: 1433800130088629386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_07
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 192
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94190804003184b90800000000000000
+      internalID: -7257529907704458935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_08
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 188
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9fe75358e1831a0800000000000000
+      internalID: -6829675277430359622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_09
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 186
+        width: 21
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d78e39b8ed5c9440800000000000000
+      internalID: 4943929745067640785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_10
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 186
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db72519a29bd3ad0800000000000000
+      internalID: -2720815007384044584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo1_11
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 186
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07207c02c92f074e0800000000000000
+      internalID: -1985820683291655568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_00
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 189
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac3f129d6f7d3870800000000000000
+      internalID: 8664221366710385826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_01
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 195
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1e1d9c713a068b0800000000000000
+      internalID: -5160945850401037883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_02
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 204
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd2e4cb3857b56d0800000000000000
+      internalID: -3000675518051897932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_03
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 217
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48602a9d368de3760800000000000000
+      internalID: 7439621557827274372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_04
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 231
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e1673af53576360800000000000000
+      internalID: 7162785402585488906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_05
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 244
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f11537875a1250ad0800000000000000
+      internalID: -2736744203983564513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_06
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 254
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0787c881f240eda40800000000000000
+      internalID: 5394754003958265968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_07
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 262
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d44d7da10d3f3cbe0800000000000000
+      internalID: -1458053779208809395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_08
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 267
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b12a511c62f3850800000000000000
+      internalID: 6358843809603918627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_09
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 269
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 906bbc8b7229ad190800000000000000
+      internalID: -7936870693985339895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 269
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95e5c6a44ba2bab0800000000000000
+      internalID: -4993740725456345702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_11
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 267
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 804395f586fd237c0800000000000000
+      internalID: -4092963471957085176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_12
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 263
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e180edaaed4205f0800000000000000
+      internalID: -791984914128928282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_13
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 257
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f8b376770b77230800000000000000
+      internalID: 3636569251004518274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_14
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 250
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5109d36235b4000800000000000000
+      internalID: 21202046960014794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_15
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 242
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c428ec50df42a60800000000000000
+      internalID: 7648516268563254325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_16
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 234
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e0aec547f8746ab0800000000000000
+      internalID: -5015751081560465179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_17
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 224
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b99004331a94a00800000000000000
+      internalID: 741300855168932672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_18
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 214
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1373cc213f668870800000000000000
+      internalID: 8684751188425667354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_19
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 204
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e6c8b1d9e3fb8f90800000000000000
+      internalID: -6950193414344751391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_20
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 194
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c8909de13301390800000000000000
+      internalID: -7849717942923457535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_21
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 183
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c902c0b8abd7ed9a0800000000000000
+      internalID: -6206384996319747940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_22
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 175
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6e8898c13b74cd0800000000000000
+      internalID: -2573891726871042333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo2_23
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 173
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbee30ce376ba8840800000000000000
+      internalID: 5227190926514056895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_00
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 201
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada7525093b4f6e90800000000000000
+      internalID: -7030317785030493478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_01
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 220
+        width: 34
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 066403d08f8a47db0800000000000000
+      internalID: -4795021919916112288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_02
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 239
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 934c0556934fb44f0800000000000000
+      internalID: -843311977851730887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_03
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 258
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf8a437b947b0060800000000000000
+      internalID: 6920753463387918252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_04
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 275
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42c7271601fda6ec0800000000000000
+      internalID: -3572798092917703644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_05
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 293
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 678f7780a8c36cd40800000000000000
+      internalID: 5604233349854394486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_06
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 311
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bf157cf1de5f330800000000000000
+      internalID: 3744159385972243260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_07
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 327
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55159b336651fcf0800000000000000
+      internalID: -220299922563066533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_08
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 345
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5027f20035be7120800000000000000
+      internalID: 2413565668129972318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_09
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 362
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 888c2811cfe7369a0800000000000000
+      internalID: -6241005037514733432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo3_10
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 389
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f00f4cfb5642e40800000000000000
+      internalID: 5630737308437188418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_00
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 394
+        width: 27
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9b45990ca6f7010800000000000000
+      internalID: 1188786202087832018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_01
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 401
+        width: 24
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2e0d5e898aa4a70800000000000000
+      internalID: 8812040995547964131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_02
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 406
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f81596fe7d8d4970800000000000000
+      internalID: 8740798028238362867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_03
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 409
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db029767d71a1abc0800000000000000
+      internalID: -3773557452529131331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_04
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 413
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad1b3e0eba1b7f980800000000000000
+      internalID: -8505134019495349798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_05
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 416
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4b9f2b327a3a730800000000000000
+      internalID: 4009231865058276551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_06
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 419
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a975c729747c5190800000000000000
+      internalID: -7972369176645502554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_07
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 422
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb4483194d02df30800000000000000
+      internalID: 4598752777009908698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_08
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 425
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1a94b1efccdcdc0800000000000000
+      internalID: -3617009533957070364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_09
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 429
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d789518745551f3e0800000000000000
+      internalID: -2021740936432347011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_10
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 434
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e46b806cc62d9d50800000000000000
+      internalID: 6745590476105802977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_11
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 439
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4546bf9c24ec00180800000000000000
+      internalID: -9151087656564988844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo4_12
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 449
+        width: 35
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea078fb73fc8742e0800000000000000
+      internalID: -2141588120406560594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_00
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 484
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82a2ed86b26dd9a80800000000000000
+      internalID: -8458369043200595416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_01
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 494
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994fb4f442ffa68b0800000000000000
+      internalID: -5158029891785198439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_02
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 503
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199d9c25ca76a5b00800000000000000
+      internalID: 818080272142162321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_03
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 513
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34455db8c96ff3190800000000000000
+      internalID: -7980388862455884733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_04
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 524
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f001e46cdd4e86d20800000000000000
+      internalID: 3272116770450575375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_05
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 538
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2881f979a6a2400c0800000000000000
+      internalID: -4610513481221859198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_06
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 557
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6096c1c350f5f0e30800000000000000
+      internalID: 4471897431090161926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_07
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 578
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341850c12ff023d40800000000000000
+      internalID: 5562526022282608963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo5_08
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 606
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca97febea64f4d670800000000000000
+      internalID: 8562737531600206252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo6_00
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 634
+        width: 32
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86dddb778a80dac20800000000000000
+      internalID: 3219238828296232296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo6_01
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 659
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93337a678bf8ce380800000000000000
+      internalID: -8940613137809853639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo6_02
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 683
+        width: 34
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ffdbd7c7fe55280800000000000000
+      internalID: -9055068157793927314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo6_03
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 706
+        width: 34
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a41257939742e6b90800000000000000
+      internalID: -7246814647318929078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tramo6_04
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 728
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d43a3b64ce9af60800000000000000
+      internalID: 8046221997679791440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tramo1_00: -5205057644397256602
+      Tramo2_04: 7162785402585488906
+      Tramo2_17: 741300855168932672
+      Tramo2_21: -6206384996319747940
+      Tramo4_07: 4598752777009908698
+      Tramo2_13: 3636569251004518274
+      Tramo5_03: -7980388862455884733
+      Tramo5_07: 5562526022282608963
+      Tramo4_02: 8740798028238362867
+      Tramo4_11: -9151087656564988844
+      Tramo6_03: -7246814647318929078
+      Tramo6_04: 8046221997679791440
+      Tramo4_08: -3617009533957070364
+      Tramo3_10: 5630737308437188418
+      Tramo2_14: 21202046960014794
+      Tramo1_01: 1757101627987037532
+      Tramo4_05: 4009231865058276551
+      Tramo3_04: -3572798092917703644
+      Tramo4_10: 6745590476105802977
+      Tramo3_03: 6920753463387918252
+      Tramo2_11: -4092963471957085176
+      Tramo1_11: -1985820683291655568
+      Tramo4_03: -3773557452529131331
+      Tramo2_02: -3000675518051897932
+      Tramo2_01: -5160945850401037883
+      Tramo2_07: -1458053779208809395
+      Tramo2_22: -2573891726871042333
+      Tramo2_00: 8664221366710385826
+      Tramo3_00: -7030317785030493478
+      Tramo5_06: 4471897431090161926
+      Tramo5_00: -8458369043200595416
+      Tramo2_23: 5227190926514056895
+      Tramo2_09: -7936870693985339895
+      Tramo4_12: -2141588120406560594
+      Tramo2_20: -7849717942923457535
+      Tramo3_05: 5604233349854394486
+      Tramo5_02: 818080272142162321
+      Tramo2_06: 5394754003958265968
+      Tramo2_12: -791984914128928282
+      Tramo1_02: -7211817535041146843
+      Tramo5_05: -4610513481221859198
+      Tramo1_09: 4943929745067640785
+      Tramo1_05: 1681476936532412553
+      Tramo1_03: -5660753399076879017
+      Tramo1_04: 5842560223980103890
+      Tramo2_18: 8684751188425667354
+      Tramo1_06: 1433800130088629386
+      Tramo3_06: 3744159385972243260
+      Tramo3_08: 2413565668129972318
+      Tramo2_08: 6358843809603918627
+      Tramo1_10: -2720815007384044584
+      Tramo3_09: -6241005037514733432
+      Tramo6_01: -8940613137809853639
+      Tramo5_08: 8562737531600206252
+      Tramo2_19: -6950193414344751391
+      Tramo4_00: 1188786202087832018
+      Tramo1_07: -7257529907704458935
+      Tramo4_06: -7972369176645502554
+      Tramo3_07: -220299922563066533
+      Tramo2_15: 7648516268563254325
+      Tramo4_01: 8812040995547964131
+      Tramo5_01: -5158029891785198439
+      Tramo6_00: 3219238828296232296
+      Tramo2_16: -5015751081560465179
+      Tramo3_01: -4795021919916112288
+      Tramo5_04: 3272116770450575375
+      Tramo4_09: -2021740936432347011
+      Tramo1_08: -6829675277430359622
+      Tramo2_10: -4993740725456345702
+      Tramo2_05: -2736744203983564513
+      Tramo3_02: -843311977851730887
+      Tramo4_04: -8505134019495349798
+      Tramo6_02: -9055068157793927314
+      Tramo2_03: 7439621557827274372
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

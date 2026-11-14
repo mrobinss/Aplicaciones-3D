@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapScene.unity
     guid: b57a54211dec4634cae7e8b91013e6b2
+  - enabled: 1
+    path: Assets/Scenes/SegundoNivel/InstructionsLvlTwo01.unity
+    guid: a07aa37c4756e704f944ae25841a1294
+  - enabled: 1
+    path: Assets/Scenes/SegundoNivel/InstructionsLvlTwo02.unity
+    guid: 1af5001d6df2d4849a805245367f6d02
+  - enabled: 1
+    path: Assets/Scenes/SegundoNivel/InstructionsLvlTwo03.unity
+    guid: 851a5a2614418b94e80fc04a7f1fe7e3
+  - enabled: 1
+    path: Assets/Scenes/SegundoNivel/Nivel2.unity
+    guid: 4213f443a7aa0b24aa06acf2d0d20252
   m_configObjects: {}
