@@ -39,6 +39,13 @@ public class ItemDispenser : Tile
             Restock(1);
             return;
         }
+
+        // Comida u olla sobre la pila: se toma una hoja y se sirve encima (queda sobre la pila como un plato)
+        if (playerItem && !_item && TryServeOnNewPlate(owner, playerItem))
+        {
+            _onActionComplete = onActionComplete;
+            return;
+        }
         base.TakeAction(owner, playerItem, onActionComplete);
     }
 
@@ -71,6 +78,41 @@ public class ItemDispenser : Tile
             _stock--;
             RefreshStack();
         }
+    }
+
+    private bool TryServeOnNewPlate(PlayerInteraction owner, Item playerItem)
+    {
+        if (!itemPrefab || !itemPrefab.GetComponent<Plate>() || (maxStock > 0 && _stock <= 0)) return false;
+
+        bool isFood = playerItem.TryGetComponent(out Food food);
+        bool isCookware = playerItem.TryGetComponent(out Cookware cookware);
+        if (!isFood && !isCookware) return false;
+
+        Plate plate = Instantiate(itemPrefab).GetComponent<Plate>();
+        bool served = false;
+        if (isFood)
+        {
+            served = plate.TryAddFood(food.GetFoodData());
+            if (served) owner.RemoveItem();
+        }
+        else if (cookware.TryPeekDish(out FoodData dish) && plate.CanAddFood(dish))
+        {
+            ServeFromCookware(cookware, plate);
+            served = plate.IsCookedFood();
+        }
+
+        if (!served || !GrabItem(plate))
+        {
+            Destroy(plate.gameObject);
+            return false;
+        }
+
+        if (maxStock > 0)
+        {
+            _stock--;
+            RefreshStack();
+        }
+        return true;
     }
 
     private bool IsCleanCopy(Item item)

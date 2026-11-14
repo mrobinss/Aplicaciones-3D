@@ -46,15 +46,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string loseScene = "LoseScene";
     [SerializeField] private float resultDelay = 1.5f;
 
+    [Header("Puntos")]
+    // Las estrellas se ganan con puntos: cada pedido de ordersForStars equivale a pointsPerOrder
+    [SerializeField] private int pointsPerOrder = 10;
+    [SerializeField] private int burnPenalty = 5;
+    [SerializeField] private int compostLeafBonus = 2;
+
     // Private *****
     private GameState _gameState;
     private float _stateTimer;
     private float _timeHelper;
     private float _orderTimer;
-    private int _coins;
+    private int _points;
     private int _deliveredOrders;
 
     private List<RecipeData> _activeRecipes = new List<RecipeData>();
+    // Pedidos que faltan de la ronda actual: cada ronda trae una vez cada receta en orden al azar
+    private readonly List<RecipeData> _orderBag = new List<RecipeData>();
 
     // MonoBehavior Methods
     private void Start()
@@ -63,8 +71,9 @@ public class GameManager : MonoBehaviour
 
         // Idle time
         _stateTimer = preGameTime;
-        _coins = 0;
+        _points = 0;
         OnTimeChange?.Invoke(this, gameTime);
+        OnCurrencyChange?.Invoke(this, _points);
     }
 
     private void Update()
@@ -92,8 +101,8 @@ public class GameManager : MonoBehaviour
 
                 if (_orderTimer <= 0 && recipeDataList.Count > 0)
                 {
-                    // Si el nivel tiene varios platos, cada pedido es uno al azar
-                    RecipeData newOrder = recipeDataList[UnityEngine.Random.Range(0, recipeDataList.Count)];
+                    // Si el nivel tiene varios platos, se van alternando (sin repetir mucho el mismo)
+                    RecipeData newOrder = NextOrder();
                     _activeRecipes.Add(newOrder);
                     OnOrderCreate?.Invoke(this,newOrder);
                     _orderTimer = 35;
@@ -128,8 +137,17 @@ public class GameManager : MonoBehaviour
         if (_gameState == GameState.GameOver) return;
 
         _deliveredOrders++;
+        AddPoints(pointsPerOrder);
         OnOrderSuccess?.Invoke(this, dish);
     }
+
+    // Dejar quemar la comida en el horno resta puntos
+    public void FoodBurned() => AddPoints(-burnPenalty);
+
+    // Compostar hojas sucias da puntos extra (por cada hoja)
+    public void LeavesComposted(int leaves) => AddPoints(compostLeafBonus * leaves);
+
+    public int GetPoints() => _points;
 
     public int GetDeliveredOrders() => _deliveredOrders;
 
@@ -145,12 +163,40 @@ public class GameManager : MonoBehaviour
     }
 
     // Private Method
+    private RecipeData NextOrder()
+    {
+        if (_orderBag.Count == 0)
+        {
+            _orderBag.AddRange(recipeDataList);
+            // Que la ronda nueva no empiece con el mismo plato con que termino la anterior
+            RecipeData last = _activeRecipes.Count > 0 ? _activeRecipes[_activeRecipes.Count - 1] : null;
+            for (int i = _orderBag.Count - 1; i > 0; i--)
+            {
+                int j = UnityEngine.Random.Range(0, i + 1);
+                (_orderBag[i], _orderBag[j]) = (_orderBag[j], _orderBag[i]);
+            }
+            if (_orderBag.Count > 1 && _orderBag[0] == last) (_orderBag[0], _orderBag[1]) = (_orderBag[1], _orderBag[0]);
+        }
+
+        RecipeData next = _orderBag[0];
+        _orderBag.RemoveAt(0);
+        return next;
+    }
+
+    private void AddPoints(int amount)
+    {
+        if (_gameState == GameState.GameOver) return;
+
+        _points = Mathf.Max(0, _points + amount);
+        OnCurrencyChange?.Invoke(this, _points);
+    }
+
     private int GetStars()
     {
         int stars = 0;
         foreach (int required in ordersForStars)
         {
-            if (_deliveredOrders >= required) stars++;
+            if (_points >= required * pointsPerOrder) stars++;
         }
         return stars;
     }

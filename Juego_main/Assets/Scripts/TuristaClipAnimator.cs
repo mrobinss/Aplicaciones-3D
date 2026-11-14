@@ -17,6 +17,9 @@ public class TuristaClipAnimator : MonoBehaviour
     [SerializeField] private bool itemOnHands = true;   // El itemAnchor sigue las manos mientras carga
     [SerializeField] private float lift = 0.25f;        // Altura sobre las palmas (en proporcion a la distancia entre manos)
     [SerializeField] private float forward = 0.15f;    // Un poco hacia adelante (misma proporcion)
+    // Huesos de las manos (en el ESPIRITU se llaman Bone.003.L y Bone.003.R)
+    [SerializeField] private string leftHandBone = "Mano_L";
+    [SerializeField] private string rightHandBone = "Mano_R";
 
     // Nombres de los estados del controlador Turista.controller
     private const string Idle = "Idle";
@@ -47,8 +50,8 @@ public class TuristaClipAnimator : MonoBehaviour
         _anim = GetComponent<Animator>();
         _anim.applyRootMotion = false;
         if (!sourceAnimator && transform.parent) sourceAnimator = transform.parent.GetComponentInParent<Animator>();
-        _handL = FindDeep(transform, "Mano_L");
-        _handR = FindDeep(transform, "Mano_R");
+        _handL = FindDeep(transform, leftHandBone);
+        _handR = FindDeep(transform, rightHandBone);
         if (itemAnchor)
         {
             _anchorBaseLocal = itemAnchor.localPosition;

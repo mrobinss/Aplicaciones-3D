@@ -17,3 +17,5 @@ MonoBehaviour:
     amount: 1
   result: {fileID: 11400000, guid: a3aba765f9896604cafda9160fd5d5cf, type: 2}
   cookingTime: 7
+  orderIngredients: []
+  cookwareMaterial: {fileID: 2100000, guid: c178ccfee141421f8cffe07a4d5e6400, type: 2}

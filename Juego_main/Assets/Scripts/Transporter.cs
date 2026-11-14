@@ -28,8 +28,10 @@ public class Transporter : Tile
     {
         _onActionComplete = onActionComplete;
         
-        // Solo se recibe el plato que piden los pedidos (una hoja con el plato a medio armar no sirve)
-        if (playerItem && playerItem.TryGetComponent(out Plate plate) && plate.IsCookedFood() && GameManager.Instance.IsOrderDish(plate.GetDish()))
+        // Solo se recibe un plato que este pidiendo alguna tarjeta en pantalla (una hoja con el plato a
+        // medio armar, o un plato que nadie pidio, no sirve)
+        if (playerItem && playerItem.TryGetComponent(out Plate plate) && plate.IsCookedFood() && GameManager.Instance.IsOrderDish(plate.GetDish()) &&
+            (!OrdersUI.Instance || OrdersUI.Instance.WantsDish(plate.GetDish())))
         {
             if (GrabItem(playerItem))
             {

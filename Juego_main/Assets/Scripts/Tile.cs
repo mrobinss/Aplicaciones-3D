@@ -10,12 +10,17 @@ public abstract class Tile : MonoBehaviour
     [SerializeField] protected Transform itemAnchor;
     // Opcional: indicador que se muestra al resaltar (para estaciones cuyo modelo esta oculto)
     [SerializeField] private GameObject highlightIndicator;
+    // Opcional: modelo que se ilumina al resaltar en lugar del de la estacion (por ejemplo, la cantina de leche del escenario)
+    [SerializeField] private MeshRenderer highlightRenderer;
+    // Brillo que se pone encima de ese modelo (sirve aunque su shader no tenga emision, como los del escenario)
+    [SerializeField] private Material highlightOverlayMaterial;
     // Opcional: barra de progreso para acciones que toman tiempo (moler, amasar)
     [SerializeField] private ProgressUI progressUIPrefab;
     [Header("Reference")]
     [SerializeField] protected Item initialItem; 
     // Private *****
     private MeshRenderer _meshRenderer;
+    private GameObject _highlightOverlay;
     private ProgressUI _progressUI;
     protected Item _item;
     protected Action _onActionComplete;
@@ -23,7 +28,8 @@ public abstract class Tile : MonoBehaviour
     // MonoBehavior Callbacks *****
     protected virtual void Awake()
     {
-        _meshRenderer = GetComponent<MeshRenderer>();
+        if (highlightRenderer && highlightOverlayMaterial) _highlightOverlay = CreateHighlightOverlay(highlightRenderer);
+        else _meshRenderer = highlightRenderer ? highlightRenderer : GetComponent<MeshRenderer>();
         
         if (initialItem)
         {
@@ -83,6 +89,7 @@ public abstract class Tile : MonoBehaviour
     public void StopHighlight()
     {
         if (highlightIndicator) highlightIndicator.SetActive(false);
+        if (_highlightOverlay) _highlightOverlay.SetActive(false);
 
         if (_meshRenderer)
         {
@@ -108,7 +115,7 @@ public abstract class Tile : MonoBehaviour
     }
     
     // La olla solo se vacia si la hoja puede recibir lo que tiene (si no, se perderia la comida)
-    private static void ServeFromCookware(Cookware cookware, Plate plate)
+    protected static void ServeFromCookware(Cookware cookware, Plate plate)
     {
         if (cookware.TryPeekDish(out FoodData dish) && plate.CanAddFood(dish) && cookware.TryGetDish(out FoodData foodCooked))
         {
@@ -153,6 +160,7 @@ public abstract class Tile : MonoBehaviour
     public void StartHighlight()
     {
         if (highlightIndicator) highlightIndicator.SetActive(true);
+        if (_highlightOverlay) _highlightOverlay.SetActive(true);
 
         if (_meshRenderer)
         {
@@ -174,6 +182,27 @@ public abstract class Tile : MonoBehaviour
             }
         }
     }
+    // Copia del modelo con un material aditivo encima: al activarse, el modelo se ve iluminado
+    private GameObject CreateHighlightOverlay(MeshRenderer target)
+    {
+        MeshFilter targetFilter = target.GetComponent<MeshFilter>();
+        if (!targetFilter || !targetFilter.sharedMesh) return null;
+
+        GameObject overlay = new GameObject("Resaltado", typeof(MeshFilter), typeof(MeshRenderer));
+        overlay.transform.SetParent(target.transform, false);
+        overlay.GetComponent<MeshFilter>().sharedMesh = targetFilter.sharedMesh;
+
+        MeshRenderer overlayRenderer = overlay.GetComponent<MeshRenderer>();
+        Material[] materials = new Material[targetFilter.sharedMesh.subMeshCount];
+        for (int i = 0; i < materials.Length; i++) materials[i] = highlightOverlayMaterial;
+        overlayRenderer.sharedMaterials = materials;
+        overlayRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        overlayRenderer.receiveShadows = false;
+
+        overlay.SetActive(false);
+        return overlay;
+    }
+
     protected virtual bool GrabItem(Item item)
     {
         if (_item) return false; //This table already have item

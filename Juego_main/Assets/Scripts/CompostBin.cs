@@ -61,6 +61,7 @@ public class CompostBin : Tile
             composted = dirtyPlate.Count;
             owner.RemoveItem();
             if (plateDispenser) plateDispenser.Restock(composted);
+            if (GameManager.Instance) GameManager.Instance.LeavesComposted(composted);
         }
         else if (playerItem.TryGetComponent(out Food _))
         {

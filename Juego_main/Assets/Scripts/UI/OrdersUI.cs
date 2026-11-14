@@ -10,19 +10,28 @@ public class OrdersUI : MonoBehaviour
 
     private List<OrderUI> _activeOrders = new List<OrderUI>();
 
+    // Pedidos en pantalla del nivel actual (la ventana de entrega pregunta aqui)
+    public static OrdersUI Instance { get; private set; }
+
     // MonoBehaviour Callbacks
     private void OnEnable()
     {
+        Instance = this;
         GameManager.Instance.OnOrderCreate += GameManager_OnOrderCreate;
         GameManager.Instance.OnOrderSuccess += GameManager_OnOrderSuccess;
     }
 
     private void OnDisable()
     {
+        if (Instance == this) Instance = null;
         GameManager.Instance.OnOrderCreate -= GameManager_OnOrderCreate;
         GameManager.Instance.OnOrderSuccess -= GameManager_OnOrderSuccess;
     }
     
+    // Public Methods
+    // Hay un pedido pendiente (no vencido ni entregado) que pide este plato
+    public bool WantsDish(FoodData dish) => _activeOrders.Exists(order => order && order.IsPending() && order.Dish == dish);
+
     // Private Methods
     private void GameManager_OnOrderCreate(object sender, RecipeData recipeData)
     {

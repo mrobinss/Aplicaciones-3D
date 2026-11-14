@@ -12,6 +12,12 @@ public class Grinder : Tile
     [SerializeField] private FoodData result;
     [SerializeField] private float timeToGrind = 3f;
     [SerializeField] private float ingredientSpacing = 0.4f;
+    // Si esta activo, los ingredientes se echan en el orden de la lista (por ejemplo, primero la leche y luego el cuajo)
+    [SerializeField] private bool inOrder;
+    // Opcional: lo que se ve dentro por cada ingrediente de la lista (mismo orden que "ingredients"),
+    // por ejemplo la leche blanca y las bolitas de cuajo. Si hay rellenos, lo que se echa desaparece
+    // de la mano y solo se ve su relleno
+    [SerializeField] private List<GameObject> fillStages = new List<GameObject>();
 
     // Private *****
     private readonly List<Food> _ingredientsInside = new List<Food>();
@@ -19,6 +25,11 @@ public class Grinder : Tile
     private bool _isGrinding;
 
     // MonoBehavior Callbacks *****
+    private void Start()
+    {
+        ShowFillStage();
+    }
+
     private void Update()
     {
         if (!_isGrinding) return;
@@ -32,6 +43,15 @@ public class Grinder : Tile
     public override void TakeAction(PlayerInteraction owner, Item playerItem, Action onActionComplete)
     {
         _onActionComplete = onActionComplete;
+
+        // Con la hoja en la mano se sirve directo el resultado (por ejemplo, la cuajada amasada)
+        if (playerItem && _item && playerItem.TryGetComponent(out Plate plate) &&
+            _item.TryGetComponent(out Food done) && plate.TryAddFood(done.GetFoodData()))
+        {
+            Destroy(_item.gameObject);
+            DropItem();
+            return;
+        }
 
         // Echar un ingrediente al molino
         if (playerItem)
@@ -74,6 +94,8 @@ public class Grinder : Tile
 
     private bool Accepts(FoodData foodData)
     {
+        if (inOrder) return _ingredientsInside.Count < ingredients.Count && ingredients[_ingredientsInside.Count] == foodData;
+
         int required = 0;
         foreach (FoodData ingredient in ingredients)
         {
@@ -97,6 +119,14 @@ public class Grinder : Tile
         food.transform.SetParent(itemAnchor, false);
         food.transform.localPosition = Vector3.zero;
 
+        if (fillStages.Count > 0)
+        {
+            food.gameObject.SetActive(false);
+            ShowFillStage();
+            if (IsFull()) _grindTimer = timeToGrind;
+            return;
+        }
+
         // Repartir los ingredientes para que se vean todos
         for (int i = 0; i < _ingredientsInside.Count; i++)
         {
@@ -107,6 +137,18 @@ public class Grinder : Tile
         if (IsFull()) _grindTimer = timeToGrind;
     }
 
+    // Muestra el relleno de cada ingrediente que ya esta dentro (sin importar el orden en que se echo)
+    private void ShowFillStage()
+    {
+        for (int i = 0; i < fillStages.Count; i++)
+        {
+            if (!fillStages[i]) continue;
+
+            FoodData ingredient = i < ingredients.Count ? ingredients[i] : null;
+            fillStages[i].SetActive(ingredient && _ingredientsInside.Exists(food => food && food.GetFoodData() == ingredient));
+        }
+    }
+
     private void Grind()
     {
         foreach (Food food in _ingredientsInside)
@@ -114,6 +156,7 @@ public class Grinder : Tile
             if (food) Destroy(food.gameObject);
         }
         _ingredientsInside.Clear();
+        ShowFillStage();
 
         GrabItem(Instantiate(result.prefab).GetComponent<Item>());
 

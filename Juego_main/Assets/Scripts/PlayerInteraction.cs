@@ -16,11 +16,18 @@ public class PlayerInteraction : MonoBehaviour
     private Item _item;
 
     private AudioSource _actualAudioSurce;
+    // Esfera de alcance (el trigger del jugador) y buffer para buscar estaciones cercanas
+    private SphereCollider _reach;
+    private readonly Collider[] _nearbyColliders = new Collider[32];
 
     // MonoBehaviour Callbacks *****
     private void Awake()
     {
         _anim = GetComponent<Animator>();
+        foreach (SphereCollider sphere in GetComponents<SphereCollider>())
+        {
+            if (sphere.isTrigger) _reach = sphere;
+        }
     }
     private void Update()
     {
@@ -63,6 +70,10 @@ public class PlayerInteraction : MonoBehaviour
     // Private Methods *****
     private void RefreshClosestTile()
     {
+        // Las estaciones cercanas se buscan con la esfera de alcance: lo que el jugador lleva en la mano
+        // tambien tiene collider y sus OnTriggerExit sacaban de la lista estaciones que seguian al lado
+        // (por ejemplo, el bowl de amasado y la leche terminaban en la mesa vecina)
+        if (_reach) FindNearbyTiles();
         _tileCloseList.RemoveAll(tile => !tile);
 
         Tile closest = GetCloserTile();
@@ -71,6 +82,24 @@ public class PlayerInteraction : MonoBehaviour
         if (_closestTile) _closestTile.StopHighlight();
         _closestTile = closest;
         if (_closestTile) _closestTile.StartHighlight();
+    }
+
+    private void FindNearbyTiles()
+    {
+        _tileCloseList.Clear();
+
+        Vector3 lossyScale = _reach.transform.lossyScale;
+        float radius = _reach.radius * Mathf.Max(lossyScale.x, Mathf.Max(lossyScale.y, lossyScale.z));
+        Vector3 center = _reach.transform.TransformPoint(_reach.center);
+        int count = Physics.OverlapSphereNonAlloc(center, radius, _nearbyColliders, ~0, QueryTriggerInteraction.Collide);
+        for (int i = 0; i < count; i++)
+        {
+            // Solo la zona de interaccion (trigger) de cada estacion, como antes
+            if (_nearbyColliders[i].isTrigger && _nearbyColliders[i].TryGetComponent(out Tile tile) && !_tileCloseList.Contains(tile))
+            {
+                _tileCloseList.Add(tile);
+            }
+        }
     }
 
     private Tile GetCloserTile()

@@ -36,6 +36,9 @@ public class Cookware : Item
     // Segundos que aguanta la comida lista en el horno antes de quemarse
     [SerializeField] private float burnTime = 10f;
     [SerializeField] private Color burnedColor = new Color(0.18f, 0.1f, 0.06f, 1f);
+    // Al quemarse suena una alerta, se ve quemado un momento y la olla se vacia sola
+    [SerializeField] private AudioClip burnedAlert;
+    [SerializeField] private float discardBurnedDelay = 1.5f;
 
     // Private *****
     private CookwareState _cookwareState;
@@ -49,8 +52,8 @@ public class Cookware : Item
     private void Start()
     {
         // localPosition: con position (mundo) el liquido quedaba bajo el piso cuando la olla esta en alto
-        potSoup.localPosition = new Vector3(potSoup.localPosition.x, yMinMaxPotSoup.x, potSoup.localPosition.z);
         _soupRenderer = potSoup.GetComponent<Renderer>();
+        UpdateSoup();
     }
 
     // Private Methods *****
@@ -75,20 +78,25 @@ public class Cookware : Item
                 _cookwareTimer = burnTime;
                 break;
             case CookwareState.CookedCooking:
-                Debug.Log("your comnida is burn");
                 _cookwareState = CookwareState.Burned;
                 SetBurnedLook(true);
+                steamParticles.Stop();
+                if (burnedAlert) AudioManager.CreateSFX(burnedAlert, 0.8f);
+                if (GameManager.Instance) GameManager.Instance.FoodBurned();
+                StartCoroutine(DiscardBurned());
                 break;
         }
     }
     
     // Private MEthods *****
-    private float GetSoupLevel()
+    // yMinMaxPotSoup: x = altura con el primer ingrediente, y = cuanto sube hasta llenarse.
+    // Vacia, la olla no muestra liquido (la olla de barro se ve por dentro)
+    private void UpdateSoup()
     {
         float percentage = (float)_foodDataList.Count / maxCapacity;
-        float limit = yMinMaxPotSoup.x + yMinMaxPotSoup.y;
-
-        return percentage * limit;
+        float level = yMinMaxPotSoup.x + percentage * yMinMaxPotSoup.y;
+        potSoup.localPosition = new Vector3(potSoup.localPosition.x, level, potSoup.localPosition.z);
+        if (_soupRenderer) _soupRenderer.enabled = _foodDataList.Count > 0;
     }
 
 
@@ -137,7 +145,7 @@ public class Cookware : Item
         if (!RecipeAccepts(foodData)) return false;
 
         _foodDataList.Add(foodData);
-        potSoup.localPosition = new Vector3(potSoup.localPosition.x, GetSoupLevel(), potSoup.localPosition.z);
+        UpdateSoup();
         
         //CookwareFull
         if (_foodDataList.Count >= maxCapacity)
@@ -180,6 +188,13 @@ public class Cookware : Item
     
     private bool IsCooking() => (_cookwareState == CookwareState.Cooking || _cookwareState == CookwareState.CookedCooking);
 
+    private IEnumerator DiscardBurned()
+    {
+        yield return new WaitForSeconds(discardBurnedDelay);
+
+        if (_cookwareState == CookwareState.Burned) TryEmpty();
+    }
+
     // Vacia la olla (por ejemplo, comida quemada que se bota en la composta)
     public bool TryEmpty()
     {
@@ -189,7 +204,7 @@ public class Cookware : Item
         _cookwareState = CookwareState.Empty;
         steamParticles.Stop();
         SetBurnedLook(false);
-        potSoup.localPosition = new Vector3(potSoup.localPosition.x, GetSoupLevel(), potSoup.localPosition.z);
+        UpdateSoup();
         return true;
     }
 
@@ -225,7 +240,7 @@ public class Cookware : Item
             _foodDataList.Clear();
             _cookwareState = CookwareState.Empty;
             steamParticles.Stop();
-            potSoup.localPosition = new Vector3(potSoup.localPosition.x, GetSoupLevel(), potSoup.localPosition.z);
+            UpdateSoup();
             return true;
         }
 

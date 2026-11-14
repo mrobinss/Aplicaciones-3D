@@ -3,7 +3,37 @@ guid: c00ca354a63ead843801851845b3ab30
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLANCO
+    second: {fileID: 2100000, guid: efaeca1f31ae87b42acf9d9e3adcaef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CORBATA1
+    second: {fileID: 2100000, guid: 1fa1b5f0d14fbfc46bfb8121f29a5788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NARANJA_CUERPO
+    second: {fileID: 2100000, guid: ae3088aa6d7356d42a1149f5bd3bda20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NEGRO
+    second: {fileID: 2100000, guid: 34018f5834aa74b409eb263ee0d53ca8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PIEL
+    second: {fileID: 2100000, guid: 2f85f733140ace1438d92e0c28170835, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROJO_CUERPO
+    second: {fileID: 2100000, guid: 5e0e727430da68944ae9f3007643d274, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
