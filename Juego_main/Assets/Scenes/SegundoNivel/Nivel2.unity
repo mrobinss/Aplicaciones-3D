@@ -280,12 +280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preGameTime: 3
-  gameTime: 120
+  gameTime: 300
   recipeDataList:
   - {fileID: 11400000, guid: bfb37501a784c3e41bb26fa07ca1a9c9, type: 2}
   - {fileID: 11400000, guid: 57d362f27897ae04ab2a7a353d3063ee, type: 2}
   levelNumber: 2
-  ordersForStars: 020000000400000006000000
+  ordersForStars: 040000000600000008000000
   starsToWin: 2
   winScene: WinScene
   loseScene: LoseScene

@@ -280,11 +280,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preGameTime: 3
-  gameTime: 120
+  gameTime: 180
   recipeDataList:
   - {fileID: 11400000, guid: 7d2b9eb41336cbf4482cde90c8efc866, type: 2}
   levelNumber: 1
-  ordersForStars: 020000000400000006000000
+  ordersForStars: 030000000500000006000000
   starsToWin: 2
   winScene: WinScene
   loseScene: LoseScene
@@ -3860,6 +3860,7 @@ MonoBehaviour:
   itemAnchor: {fileID: 492263736}
   highlightIndicator: {fileID: 1083369760}
   highlightRenderer: {fileID: 0}
+  highlightOverlayMaterial: {fileID: 0}
   progressUIPrefab: {fileID: 0}
   initialItem: {fileID: 0}
   itemPrefab: {fileID: 8893671995713882115, guid: 519e8cd8f0a20a44ea47ed2f3d697627,
@@ -4733,6 +4734,7 @@ MonoBehaviour:
   itemAnchor: {fileID: 1621007898}
   highlightIndicator: {fileID: 580576460}
   highlightRenderer: {fileID: 0}
+  highlightOverlayMaterial: {fileID: 0}
   progressUIPrefab: {fileID: 197488822683625985, guid: 1e464b3679cd43b4187414cb3a7904a4,
     type: 3}
   initialItem: {fileID: 0}
@@ -5510,6 +5512,8 @@ MonoBehaviour:
   itemOnHands: 1
   lift: 0.25
   forward: 0.15
+  leftHandBone: Mano_L
+  rightHandBone: Mano_R
 --- !u!95 &1128715108
 Animator:
   serializedVersion: 4
@@ -6183,6 +6187,7 @@ MonoBehaviour:
   itemAnchor: {fileID: 846231089}
   highlightIndicator: {fileID: 366544933}
   highlightRenderer: {fileID: 0}
+  highlightOverlayMaterial: {fileID: 0}
   progressUIPrefab: {fileID: 0}
   initialItem: {fileID: 0}
   compostAudio: {fileID: 0}
@@ -9143,6 +9148,7 @@ MonoBehaviour:
   itemAnchor: {fileID: 319375730}
   highlightIndicator: {fileID: 1543751870}
   highlightRenderer: {fileID: 0}
+  highlightOverlayMaterial: {fileID: 0}
   progressUIPrefab: {fileID: 197488822683625985, guid: 1e464b3679cd43b4187414cb3a7904a4,
     type: 3}
   initialItem: {fileID: 0}
