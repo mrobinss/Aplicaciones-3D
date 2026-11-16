@@ -6590,6 +6590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7163282194529776072, guid: a9d9a348d6dc196418798e9dee89fa4c,
         type: 3}
+      propertyPath: esMesaDeAmasar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163282194529776072, guid: a9d9a348d6dc196418798e9dee89fa4c,
+        type: 3}
       propertyPath: progressUIPrefab
       value: 
       objectReference: {fileID: 197488822683625985, guid: 1e464b3679cd43b4187414cb3a7904a4,
@@ -10706,6 +10711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7163282194529776072, guid: a9d9a348d6dc196418798e9dee89fa4c,
         type: 3}
+      propertyPath: esMesaDeAmasar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163282194529776072, guid: a9d9a348d6dc196418798e9dee89fa4c,
+        type: 3}
       propertyPath: progressUIPrefab
       value: 
       objectReference: {fileID: 197488822683625985, guid: 1e464b3679cd43b4187414cb3a7904a4,
@@ -11182,6 +11192,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6777127925706906807, guid: 07a78584ea78a8645aa01af35ee4ce57,
+        type: 3}
+      propertyPath: kneadingAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 5ef7accd9763f42a19084ca6a3d5892f, type: 3}
     - target: {fileID: 8410303406709595129, guid: 07a78584ea78a8645aa01af35ee4ce57,
         type: 3}
       propertyPath: m_RootOrder

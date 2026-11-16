@@ -7,10 +7,12 @@ public class CuttingTable : Tile
 {
     // Serialized Field
     [SerializeField] private float timeToCut = 2;
+    [SerializeField] private bool esMesaDeAmasar = false;
+
     // Private *****
     private float _timeToCut;
     private bool _isCutting;
-    
+
     // MonoBehavior Methods
     private void Start()
     {
@@ -20,7 +22,7 @@ public class CuttingTable : Tile
     private void Update()
     {
         if (!_isCutting) return;
-        
+
         _timeToCut -= Time.deltaTime;
         ShowProgress(1f - Mathf.Clamp01(_timeToCut / timeToCut));
 
@@ -38,22 +40,22 @@ public class CuttingTable : Tile
     public override void TakeAction(PlayerInteraction owner, Item playerItem, Action onActionComplete)
     {
         _onActionComplete = onActionComplete;
-        
+
         if (playerItem & !_item)
         {
-            if(GrabItem(playerItem)) owner.DropItem();
+            if (GrabItem(playerItem)) owner.DropItem();
         }
-        else if(!playerItem && _item)
+        else if (!playerItem && _item)
         {
             if (_item.TryGetComponent(out Food food) && food.CanBeCut())
             {
                 TakeAdvanceAction(owner);
-            }else
+            }
+            else
             {
-                if( owner.GrabItem(_item)) DropItem();
+                if (owner.GrabItem(_item)) DropItem();
             }
         }
-        // Con la hoja en la mano se sirve directo lo ya procesado (por ejemplo, la cuajada del exprimidor)
         else if (playerItem && _item && playerItem.TryGetComponent(out Plate plate) &&
                  _item.TryGetComponent(out Food done) && !done.CanBeCut() && plate.TryAddFood(done.GetFoodData()))
         {
@@ -65,9 +67,8 @@ public class CuttingTable : Tile
     public override void ActionComplete()
     {
         if (!_item && !_isCutting) return;
-        
+
         _isCutting = false;
-        // El corte se reinicia en la siguiente pulsacion, asi que la barra se oculta al soltar
         HideProgress();
         _onActionComplete();
     }
@@ -77,17 +78,29 @@ public class CuttingTable : Tile
     {
         _timeToCut = timeToCut;
         _isCutting = true;
-        owner.StartCutAnimation();
+
+        // 1. Si el ingrediente (FoodData) tiene un audio asignado (ej. masa), reproduce ese
+        if (_item != null && _item.TryGetComponent(out Food food) && food.GetFoodData().processingAudio != null)
+        {
+            owner.StartCutAnimation(food.GetFoodData().processingAudio);
+        }
+        // 2. Si esta mesa está marcada como mesa de amasar, usa el sonido de amasar del jugador
+        else if (esMesaDeAmasar)
+        {
+            owner.StartKneadAnimation();
+        }
+        // 3. Para cualquier otro alimento/mesa, mantiene el sonido normal de picar
+        else
+        {
+            owner.StartCutAnimation();
+        }
     }
-    
-    /// <summary>
-    /// Replace current item for new one
-    /// </summary>
+
     private bool CraftFood(FoodData newFoodData)
     {
         if (!_item) return false;
 
-        GameObject newFoodClone = Instantiate(newFoodData.prefab, _item.transform.parent,false);
+        GameObject newFoodClone = Instantiate(newFoodData.prefab, _item.transform.parent, false);
         Destroy(_item.gameObject);
         _item = newFoodClone.GetComponent<Item>();
         return true;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028292, g: 0.22571306, b: 0.30692118, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -200,6 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61072166}
   - component: {fileID: 61072167}
+  - component: {fileID: 61072168}
   m_Layer: 5
   m_Name: Slider_musica
   m_TagString: Untagged
@@ -281,6 +282,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &61072168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61072165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b88fecc70e95489ba0a94fe3cdc2615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &83123354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,6 +1950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831403603}
   - component: {fileID: 1831403604}
+  - component: {fileID: 1831403605}
   m_Layer: 5
   m_Name: Slider_efectos
   m_TagString: Untagged
@@ -2018,6 +2032,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1831403605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831403602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43eccbcabd9db4871837bf7bffba4118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1855273949
 GameObject:
   m_ObjectHideFlags: 0

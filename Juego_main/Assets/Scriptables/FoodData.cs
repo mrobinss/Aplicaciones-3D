@@ -8,6 +8,7 @@ public enum FoodType
     Processed,
     Cooked
 }
+
 [CreateAssetMenu (menuName = "New Food")]
 public class FoodData : ScriptableObject
 {
@@ -15,4 +16,8 @@ public class FoodData : ScriptableObject
     public Sprite itemSprite;
     public FoodType foodType;
     public GameObject prefab;
+
+    [Header("Audio al procesar en mesa (opcional)")]
+    [Tooltip("Si se asigna, este clip sonará en lugar del de picar (ideal para amasar)")]
+    public AudioClip processingAudio;
 }

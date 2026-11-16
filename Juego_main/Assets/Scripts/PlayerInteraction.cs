@@ -9,6 +9,12 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform itemAnchor;
     [SerializeField] private AudioClip grabAudio;
     [SerializeField] private AudioClip cuttingAudio;
+    [SerializeField] private AudioClip kneadingAudio;
+
+    [Header("Calibración de Volumen")]
+    [Range(0f, 1f)] [SerializeField] private float cuttingVolume = 0.4f;
+    [Range(0f, 1f)] [SerializeField] private float kneadingVolume = 1.0f;
+
     // Private *****
     private Animator _anim;
     private List<Tile> _tileCloseList = new List<Tile>();
@@ -16,7 +22,6 @@ public class PlayerInteraction : MonoBehaviour
     private Item _item;
 
     private AudioSource _actualAudioSurce;
-    // Esfera de alcance (el trigger del jugador) y buffer para buscar estaciones cercanas
     private SphereCollider _reach;
     private readonly Collider[] _nearbyColliders = new Collider[32];
 
@@ -29,10 +34,9 @@ public class PlayerInteraction : MonoBehaviour
             if (sphere.isTrigger) _reach = sphere;
         }
     }
+
     private void Update()
     {
-        // Recalcular cada frame: con estaciones pegadas (los hornos) las zonas se solapan y,
-        // si solo se calcula al entrar o salir de una, se queda apuntando a la estacion anterior
         RefreshClosestTile();
 
         if (!_closestTile) return;
@@ -44,7 +48,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            // Only Apply for long actions
             _closestTile.ActionComplete();
         }
     }
@@ -70,9 +73,6 @@ public class PlayerInteraction : MonoBehaviour
     // Private Methods *****
     private void RefreshClosestTile()
     {
-        // Las estaciones cercanas se buscan con la esfera de alcance: lo que el jugador lleva en la mano
-        // tambien tiene collider y sus OnTriggerExit sacaban de la lista estaciones que seguian al lado
-        // (por ejemplo, el bowl de amasado y la leche terminaban en la mesa vecina)
         if (_reach) FindNearbyTiles();
         _tileCloseList.RemoveAll(tile => !tile);
 
@@ -94,7 +94,6 @@ public class PlayerInteraction : MonoBehaviour
         int count = Physics.OverlapSphereNonAlloc(center, radius, _nearbyColliders, ~0, QueryTriggerInteraction.Collide);
         for (int i = 0; i < count; i++)
         {
-            // Solo la zona de interaccion (trigger) de cada estacion, como antes
             if (_nearbyColliders[i].isTrigger && _nearbyColliders[i].TryGetComponent(out Tile tile) && !_tileCloseList.Contains(tile))
             {
                 _tileCloseList.Add(tile);
@@ -110,7 +109,6 @@ public class PlayerInteraction : MonoBehaviour
         float minDistance = Mathf.Infinity;
         foreach (Tile tile in _tileCloseList)
         {
-            // Distancia al borde de la estacion (no a su centro): funciona igual con estaciones grandes
             Vector3 point = tile.TryGetComponent(out Collider tileCollider) ? tileCollider.ClosestPoint(transform.position) : tile.transform.position;
             point.y = transform.position.y;
             float newDistance = Vector3.Distance(transform.position, point);
@@ -123,24 +121,26 @@ public class PlayerInteraction : MonoBehaviour
 
         return winnerTile;
     }
-    
+
     // Public Methods *****
     public bool GrabItem(Item item)
     {
-        if (_item) return false; //This player already have item
+        if (_item) return false;
 
         _item = item;
-        _item.transform.SetParent(itemAnchor,false);
+        _item.transform.SetParent(itemAnchor, false);
         _item.transform.localPosition = Vector3.zero;
-        AudioManager.CreateSFX(grabAudio,1f,1);
-        
+        float volEfectos = PlayerPrefs.GetFloat("VolumenEfectos", 1f);
+        AudioManager.CreateSFX(grabAudio, 1f * volEfectos, 1);
+
         return true;
     }
 
     public void DropItem()
     {
         _item = null;
-        AudioManager.CreateSFX(grabAudio,1f,0.65f);
+        float volEfectos = PlayerPrefs.GetFloat("VolumenEfectos", 1f);
+        AudioManager.CreateSFX(grabAudio, 1f * volEfectos, 0.65f);
     }
 
     public void RemoveItem()
@@ -149,15 +149,32 @@ public class PlayerInteraction : MonoBehaviour
         DropItem();
     }
 
-    public void StartCutAnimation()
+    public void StartCutAnimation(AudioClip customAudio = null)
     {
         _anim.SetBool("Cutting", true);
-        _actualAudioSurce = AudioManager.CreateSFX(cuttingAudio, 0.4f);
+        bool esAmasado = customAudio != null;
+        AudioClip clipAUsar = esAmasado ? customAudio : cuttingAudio;
+        float volumenBase = esAmasado ? kneadingVolume : cuttingVolume;
+        float volEfectos = PlayerPrefs.GetFloat("VolumenEfectos", 1f);
+
+        if (clipAUsar != null)
+        {
+            _actualAudioSurce = AudioManager.CreateSFX(clipAUsar, volumenBase * volEfectos, 1f, true);
+        }
+    }
+
+    public void StartKneadAnimation()
+    {
+        StartCutAnimation(kneadingAudio);
     }
 
     public void StopCutAnimation()
     {
         _anim.SetBool("Cutting", false);
-        if (_actualAudioSurce) _actualAudioSurce.Stop();
+        if (_actualAudioSurce)
+        {
+            _actualAudioSurce.Stop();
+            Destroy(_actualAudioSurce.gameObject);
+        }
     }
 }
